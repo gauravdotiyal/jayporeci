@@ -11,7 +11,7 @@ run() {
     else
         echo "ENV : '$ENV' -> Sourcing from secrets"
         echo "---"
-        source /jaypore_ci/repo/secrets/bin/set_env.sh $ENV
+        source /jaypore_ci/repo/secrets/bin/set_env.sh $ENV 
     fi
     cp -r /jaypore_ci/repo/. /jaypore_ci/run
     cd /jaypore_ci/run/
@@ -58,7 +58,8 @@ hook() {
         --cidfile /tmp/jayporeci__cidfiles/$SHA \
         --workdir /jaypore_ci/run \
         im_jayporeci__pipe__$SHA \
-        bash -c "ENV=$ENV bash /jaypore_ci/repo/$JAYPORE_CODE_DIR/pre-push.sh run"
+        # bash -c "ENV=$ENV bash /jaypore_ci/repo/$JAYPORE_CODE_DIR/pre-push.sh run"
+        sh -c "ENV=$ENV sh /jaypore_ci/repo/$JAYPORE_CODE_DIR/pre-push.sh run"
     echo '----------------------------------------------'
 }
 EXPECTED_JAYPORECI_VERSION=latest
