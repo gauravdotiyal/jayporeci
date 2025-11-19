@@ -1,3 +1,5 @@
-ARG JAYPORECI_VERSION=0.2.31
+ARG JAYPORECI_VERSION
 FROM arjoonn/jci:$JAYPORECI_VERSION
-COPY ../ /jaypore_ci/repo/
+
+# Copy YOUR ENTIRE REPO into /jaypore_ci/repo
+COPY . /jaypore_ci/repo/
