@@ -21,7 +21,7 @@ run() {
     cat /jaypore_ci/cidfiles/$SHA
     echo
     echo "---- ======="
-    python /jaypore_ci/run/$JAYPORE_CODE_DIR/cicd.py
+    python /jaypore_ci/run/jayporeci/cicd.py
 }
 
 
