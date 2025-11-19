@@ -58,8 +58,7 @@ hook() {
         --cidfile /tmp/jayporeci__cidfiles/$SHA \
         --workdir /jaypore_ci/run \
         im_jayporeci__pipe__$SHA \
-        # bash -c "ENV=$ENV bash /jaypore_ci/repo/$JAYPORE_CODE_DIR/pre-push.sh run"
-        sh -c "ENV=$ENV sh /jaypore_ci/repo/$JAYPORE_CODE_DIR/pre-push.sh run"
+        bash -c "ENV=$ENV bash /jaypore_ci/repo/$JAYPORE_CODE_DIR/pre-push.sh run"
     echo '----------------------------------------------'
 }
 EXPECTED_JAYPORECI_VERSION=latest
