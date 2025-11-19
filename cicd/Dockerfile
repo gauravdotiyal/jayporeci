@@ -2,3 +2,4 @@ ARG JAYPORECI_VERSION=0.2.31
 FROM arjoonn/jci:$JAYPORECI_VERSION
 
 COPY . /jaypore_ci/repo/
+ 
