@@ -49,12 +49,10 @@ hook() {
     echo "Running container : "
     docker run \
         -d \
-        --entrypoint "" \
         --name jayporeci__pipe__$SHA \
         -e JAYPORE_CODE_DIR=$JAYPORE_CODE_DIR \
         -e SHA=$SHA \
         -v /var/run/docker.sock:/var/run/docker.sock \
-        -v $REPO_ROOT:/jaypore_ci/repo \
         -v /tmp/jayporeci__src__$SHA:/jaypore_ci/run \
         -v /tmp/jayporeci__cidfiles:/jaypore_ci/cidfiles:ro \
         --cidfile /tmp/jayporeci__cidfiles/$SHA \
