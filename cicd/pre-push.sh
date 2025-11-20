@@ -58,7 +58,7 @@ hook() {
         --cidfile /tmp/jayporeci__cidfiles/$SHA \
         --workdir /jaypore_ci/run \
         im_jayporeci__pipe__$SHA \
-        bash -c "ENV=$ENV bash /jaypore_ci/repo/$JAYPORE_CODE_DIR/pre-push.sh run"
+        -c "ENV=$ENV bash /jaypore_ci/repo/$JAYPORE_CODE_DIR/pre-push.sh run"
     echo '----------------------------------------------'
 }
 EXPECTED_JAYPORECI_VERSION=latest
@@ -69,4 +69,4 @@ EXPECTED_JAYPORECI_VERSION=latest
 # would like to upgrade to a different version of JayporeCI.
 EXPECTED_JAYPORECI_VERSION=0.2.31
 
-("$@")
+("$@")  
