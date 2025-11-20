@@ -50,7 +50,6 @@ hook() {
     docker run \
         -d \
         --name jayporeci__pipe__$SHA \
-        --entrypoint /bin/sh \
         -e JAYPORE_CODE_DIR=$JAYPORE_CODE_DIR \
         -e SHA=$SHA \
         -v /var/run/docker.sock:/var/run/docker.sock \
@@ -59,7 +58,7 @@ hook() {
         --cidfile /tmp/jayporeci__cidfiles/$SHA \
         --workdir /jaypore_ci/run \
         im_jayporeci__pipe__$SHA \
-        sh -c "ENV=$ENV sh /jaypore_ci/repo/$JAYPORE_CODE_DIR/pre-push.sh run"
+        bash -c "ENV=$ENV bash /jaypore_ci/repo/$JAYPORE_CODE_DIR/pre-push.sh run"
     echo '----------------------------------------------'
 }
 EXPECTED_JAYPORECI_VERSION=latest
@@ -70,4 +69,4 @@ EXPECTED_JAYPORECI_VERSION=latest
 # would like to upgrade to a different version of JayporeCI.
 EXPECTED_JAYPORECI_VERSION=0.2.31
 
-("$@")  
+("$@")
