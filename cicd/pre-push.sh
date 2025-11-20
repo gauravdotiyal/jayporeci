@@ -50,6 +50,7 @@ hook() {
     docker run \
         -d \
         --name jayporeci__pipe__$SHA \
+        --entrypoint /bin/bash \
         -e JAYPORE_CODE_DIR=$JAYPORE_CODE_DIR \
         -e SHA=$SHA \
         -v /var/run/docker.sock:/var/run/docker.sock \
@@ -58,7 +59,7 @@ hook() {
         --cidfile /tmp/jayporeci__cidfiles/$SHA \
         --workdir /jaypore_ci/run \
         im_jayporeci__pipe__$SHA \
-        -c "ENV=$ENV bash /jaypore_ci/repo/$JAYPORE_CODE_DIR/pre-push.sh run"
+        bash -c "ENV=$ENV bash /jaypore_ci/repo/$JAYPORE_CODE_DIR/pre-push.sh run"
     echo '----------------------------------------------'
 }
 EXPECTED_JAYPORECI_VERSION=latest
